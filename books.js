@@ -188,18 +188,23 @@ const books = [
 
 let search = {
     word: "",
-    genreId : 1 ,
+    genreId : null,
     minPrice : 1,
     maxPrice : 9999
 };
 
 
 function getBooks() {
-    return books
-        .filter(book =>book.name.toLowerCase().includes(search.word.toLowerCase()) || book.author.toLowerCase().includes(search.word.toLowerCase()))
-        .filter(book => book.price > search.minPrice)
-        .filter(book => book.genres)
-     
+
+    let res = books;
+    res = res.filter(book =>book.name.toLowerCase().includes(search.word.toLowerCase()) || book.author.toLowerCase().includes(search.word.toLowerCase()))
+    res = res.filter(book => book.price > search.minPrice)
+
+    if (search.genreId){
+        res = res.filter(book => book.genreId == search.genreId)
+    }
+
+    return res;     
 }
 
 function getBookHtmlContent(book) {
