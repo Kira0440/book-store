@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add book</title>
+
+    <script src="/public/js/editBook.js" type="module" lang="js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Add book</h1>
+
+        <form action="" method="post" id="addBookForm">
+
+            <label for = "name">Назва: </label>
+            <input type="text" id = "name" name="name" required><br>
+    
+            <label for = "author">Автор: </label>
+            <input type = "author" id="author" name = "author" required><br>
+                
+            <label for = "genreId">GenreId: </label>
+            <input type = "genreId" id="genreId" name = "genreId" required><br>
+
+            <label for = "price">Цена: </label>
+            <input id = "price" name = "price"></input><br>
+    
+            <label for = "image">Image: </label>
+            <input id = "image" name = "image" required></input><br>
+
+            <label for = "description">Description: </label>
+            <textarea id = "description" name = "description" required></textarea><br>
+
+            <button type="submit">Save</button>
+        </form>
+
+
+    </div>
+
+</body>
+</html>
