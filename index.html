@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продаж книжок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+
+        <button class="burger">
+            <span></span><span></span><span></span>
+        </button>
+
+        <img class="name" src="IMG_1360.JPG">  
+
+        <div>
+            <input type="search" id="searchInput" />
+            <select id="searchGenres">
+                <option value="Childrens">${title}</option>
+                <option value="2">${title}</option>
+                <option value="3">Mercedes</option>
+                <option value="4">Audi</option>
+                <option value="5">Audi</option>
+                <option value="6">Audi</option>
+              </select>
+              <input type="number" id="minPrice" />
+              <input type="number" id="maxPrice" />
+        </div>
+        
+
+        <button onclick="window.location.href='cart.html'">
+            <img class="cart" src="IMG_1361.JPG">(<span id="cart-count"></span>)
+        </button>
+    </header>
+    <nav id="nav">
+        <a href="#Childrens">Дитячі</a>
+        <a href="#Fantasy">Фантастика</a>
+        <a href="#Horror">Жахіття</a>
+        <a href="#Romance">Романтика</a>
+    </nav>
+    <main id="books-content">
+    </main>
+    
+    <!-- <div class="text">
+        <h6>cgvbn</h6>
+    </div> -->
+
+    <footer>
+        <h2>Зворотній зв'язок</h2><br>
+        
+        <div>
+            <form action="/index.html" method="get" id="feedbackForm">
+
+                <label for = "name">Ім'я: </label>
+                <input type="text" id = "name" name="name" required><br>
+        
+                <label for = "email">Електронна пошта: </label>
+                <input type = "email" id="email" name = "email" required><br>
+                    
+                <label for = "message">Повідомлення: </label>
+                <textarea id = "message" name = "message" required></textarea><br>
+        
+                <button type="submit">Надіслати</button>
+            </form>
+        </div>
+    </footer>
+
+    <!-- <div class="fixed-overlay">
+        <div class="modal">
+            <div class="modal_container">  
+                <h6>Some modal text</h6>  
+            </div>
+        </div>
+    </div> -->
+
+    <script src = "script.js"></script>
+    <script src = "books.js"></script>
+</body>
+</html>

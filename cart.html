@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кошик</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function loadCartContent() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartItems = '';
+
+            if (cart.length === 0) {
+                cartItems = '<p>Кошик порожній.</p>';
+            } else {
+                cart.forEach(item => {
+                    cartItems += `<p>${item.name}: ${item.price} грн</p>`;
+                });
+            }
+
+            document.getElementById('cart-content').innerHTML = cartItems;
+        }
+
+        window.onload = loadCartContent;
+    </script>
+</head>
+<body>
+    <header>
+        <img class="name" src="IMG_1360.JPG">  
+        <button onclick="window.location.href='cart.html'">
+            <img class="cart" src="IMG_1361.JPG">(<span id="cart-count"></span>)
+        </button>
+    </header>
+    <!--
+        <header>
+            <h1>Ваш кошик</h1>
+        </header>
+    -->
+    <main>
+        <h1>Кошик</h1>
+        <div id="cart-content"></div>
+    </main>
+    <button onclick="history.back()">Назад</button>
+    <button onclick="clearCart()">Очистить</button>
+
+    <script src = "script.js"></script>
+</body>
+</html>
