@@ -3,7 +3,7 @@ const genres = [
     {
         id: 1,
         href : "Childrens",
-        title : "Дитячі"
+        title : "Дитячі2"
     },
     {
         id: 2,
