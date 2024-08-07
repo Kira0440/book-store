@@ -1,5 +1,15 @@
 import { getBooks as getAllBooks } from "./public/js/bookService.js";
 
+let burgers = document.querySelectorAll('.burger');
+let burgerMenus = document.querySelectorAll('.burger-menu');
+burgers.forEach(burger => burger.addEventListener('click', function(){
+    burgers.forEach(burger => burger.classList.toggle('active'));
+    
+    for(let i = 0; i < burgerMenus.length; i++){
+        const bm = burgerMenus[i];
+        bm.classList.toggle('active');
+    }
+}));
 
 const genres = [
     {
@@ -23,26 +33,26 @@ const genres = [
         title : "Романтика"
     },
 
-    {
-        id: 5,
-        href : "New one",
-        title : "New one"
-    },
+    // {
+    //     id: 5,
+    //     href : "New one",
+    //     title : "New one"
+    // },
 
-    {
-        id: 6,
-        href : "Second one",
-        title : "Second one"
-    }
+    // {
+    //     id: 6,
+    //     href : "Second one",
+    //     title : "Second one"
+    // }
     
 ]
   
 
 let search = {
     word: "",
-    genreId : null,
-    minPrice : 1,
-    maxPrice : 9999
+    genreId : searchGenre.value,
+    minPrice : 0,
+    maxPrice : 99999
 };
 
 
@@ -50,7 +60,18 @@ function getBooks() {
 
     let res = getAllBooks();
     res = res.filter(book =>book.name.toLowerCase().includes(search.word.toLowerCase()) || book.author.toLowerCase().includes(search.word.toLowerCase()))
+    
+    console.log(search.minPrice, search.maxPrice)
     res = res.filter(book => book.price > search.minPrice)
+    res = res.filter(book => book.price < search.maxPrice)
+
+    // if (search.minPrice = []){
+    //     search.minPrice = 1;
+    // }
+
+    // if (search.maxPrice = []){
+    //     search.maxPrice = 9999;
+    // }
 
     if (search.genreId){
         res = res.filter(book => book.genreId == search.genreId)
@@ -74,6 +95,24 @@ function getBookHtmlContent(book) {
             </div>
     `
 }
+
+function getSearchGenre(genre) {
+    return `
+        <option value="${genre.id}">${genre.title}</option>
+    `
+}
+
+function getSelectSearchGenre() {
+  
+    let searchGenre = "";
+
+    for(let i = 0; i < genres.length; i++){
+        searchGenre += getSearchGenre(genres[i])
+    }
+
+    return searchGenre;
+}
+
 
 function getGenreSectionHtmlContent(genre, books) {
     const sectionTop = `
@@ -142,30 +181,60 @@ function insertNavigation() {
 
 function onSearchTextChanged(event) {
     const inputEl = event.target;
-    searchWord = inputEl.value;
-
-    search.word = searchWord;
+    search.word = inputEl.value;
 
     insertBooks(getBooks());
 }
 
-// function onGenreSelected(e){
-//     const selectEl = e.target;
-//     searchGenre = selectEl.href;
+function onInputMaxPrice(eve){
 
-//     search.genres = searchGenre;
+    search.maxPrice = eve.target.value;
 
-//     insertBooks(getBooks());
-// }
+    insertBooks(getBooks());
+}
+
+function onInputMinPrice(ev){
+
+    console.log("test min price:", ev.target.value);
+    search.minPrice = ev.target.value;
+
+    insertBooks(getBooks());
+}
+
+function onGenreSelected(e){
+    // const selectEl = e.target;
+    // searchGenre = selectEl.href;
+
+    search.genreId = e.target.value;
+
+    insertBooks(getBooks());
+}
+
+function insertGenresFilter() {
+    const selectEl = document.getElementById("searchGenre")
+
+    const selectHtml = getSelectSearchGenre()
+
+    selectEl.innerHTML = selectHtml;
+}
 
 function initSearch() {
     const inputText = document.getElementById("searchInput");
     inputText.addEventListener("input", onSearchTextChanged);
 
+    const selectGenre = document.getElementById("searchGenre");
+    selectGenre.addEventListener("change", onGenreSelected);
+
+    const inputMinPrice = document.getElementById("searchMinPrice");
+    inputMinPrice.addEventListener("input", onInputMinPrice);
+
+    const inputMaxPrice = document.getElementById("searchMaxPrice");
+    inputMaxPrice.addEventListener("input", onInputMaxPrice);
 }
 
 
 
 insertBooks(getBooks());
 insertNavigation();
+insertGenresFilter();
 initSearch();

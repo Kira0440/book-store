@@ -12,23 +12,32 @@
     <header>
 
         <button class="burger">
-            <span></span><span></span><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
 
+        <!-- <div class="burger-menu">
+
+            <select id="searchGenre">
+                <option value="1">Дитячі</option>
+                <option value="2">Фантастика</option>
+                <option value="3">Жахіття</option>
+                <option value="4">Романтика</option>
+            </select>
+            <div id="searchMinPrice">
+                <input type="number" id="MinPrice" />
+            </div>
+            <div id="searchMaxPrice">
+                <input type="number" id="MaxPrice" />
+            </div>
+        </div> -->
+
+        
         <img class="name" src="IMG_1360.JPG">  
 
         <div>
             <input type="search" id="searchInput" />
-            <select id="searchGenres">
-                <option value="Childrens">${title}</option>
-                <option value="2">${title}</option>
-                <option value="3">Mercedes</option>
-                <option value="4">Audi</option>
-                <option value="5">Audi</option>
-                <option value="6">Audi</option>
-              </select>
-              <input type="number" id="minPrice" />
-              <input type="number" id="maxPrice" />
         </div>
         
 
@@ -42,32 +51,58 @@
         <a href="#Horror">Жахіття</a>
         <a href="#Romance">Романтика</a>
     </nav>
+
+
+
     <main id="books-content">
-    </main>
     
-    <!-- <div class="text">
-        <h6>cgvbn</h6>
-    </div> -->
+    </main>
+        <footer>
+            <h2>Зворотній зв'язок</h2><br>
+            
+            <div>
+                <form action="/index.html" method="get" id="feedbackForm">
+    
+                    <label for = "name">Ім'я: </label>
+                    <input type="text" id = "name" name="name" required><br>
+            
+                    <label for = "email">Електронна пошта: </label>
+                    <input type = "email" id="email" name = "email" required><br>
+                        
+                    <label for = "message">Повідомлення: </label>
+                    <textarea id = "message" name = "message" required></textarea><br>
+            
+                    <button type="submit">Надіслати</button>
+                </form>
+            </div>
+        </footer>
 
-    <footer>
-        <h2>Зворотній зв'язок</h2><br>
-        
         <div>
-            <form action="/index.html" method="get" id="feedbackForm">
+            
 
-                <label for = "name">Ім'я: </label>
-                <input type="text" id = "name" name="name" required><br>
-        
-                <label for = "email">Електронна пошта: </label>
-                <input type = "email" id="email" name = "email" required><br>
-                    
-                <label for = "message">Повідомлення: </label>
-                <textarea id = "message" name = "message" required></textarea><br>
-        
-                <button type="submit">Надіслати</button>
-            </form>
+            <div class="burger-menu">
+    
+                <button class="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <select id="searchGenre">
+                    <option value="1">Дитячі</option>
+                    <option value="2">Фантастика</option>
+                    <option value="3">Жахіття</option>
+                    <option value="4">Романтика</option>
+                </select>
+                <div id="searchMinPrice">
+                    <input type="number" id="MinPrice" />
+                </div>
+                <div id="searchMaxPrice">
+                    <input type="number" id="MaxPrice" />
+                </div>
+            </div>
         </div>
-    </footer>
+        
 
     <!-- <div class="fixed-overlay">
         <div class="modal">
