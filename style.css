@@ -10,7 +10,7 @@ header {
     display: flex; 
     justify-content: space-between;
     align-items: center;
-    background-color: #4CAF50;
+    background-color: #654474;
     color: white;
     padding: 10px;
     margin: 0px;
@@ -25,12 +25,14 @@ header {
     width: 40px;
     height: 40px;
     border: none;
-    background-color: #4CAF50;
+    background-color: #654474;
     overflow: hidden;
     z-index: 3;
 }
 
-
+.burger:hover {
+    background-color: #654474;
+}
 
 .burger span {
     position: absolute;
@@ -55,15 +57,20 @@ header {
     z-index: 2;
     position: fixed;
 	top: 0;
-	left: 0;
+	right: 0;
 	width: 50%;
 	height: 100%;
 	padding: 15px; 
-    background-color: gray;
-    transform: translateX(-100%);
-    transition: transform 0.5s; 
-    
-    
+    background-color: white;
+    transform: translateX(100%);
+    transition: transform 0.5s;  
+}
+
+.burger-menu span{
+    background-color: #4CAF50;
+    left: 0;
+    width: 30px;
+    height: 100%;
 }
 
 .burger-menu li {
@@ -100,10 +107,19 @@ header {
     width: 35px; 
 }
 
+button.login {
+    align-items: baseline;
+    height: 49px;
+    width: 49px;
+    padding: 0;
+
+}
+
 nav {
     position: sticky;
     top: 70px;
-    background-color: rgb(181, 185, 185);
+    /* background-color: rgb(181, 185, 185); */
+    background-color: white;
     justify-items: flex-end;
     display: inline-flexbox;
     text-align: center;
@@ -115,16 +131,25 @@ nav {
 nav a {
     display: inline;
     text-decoration: none;
-    color: #570089;
+    color: #654474;
     margin: 20px;
     position: relative;
     list-style-type: none;
     padding: 0;
 }
 
+.line {
+    top: 140px;
+    position: absolute;
+    width: 100%;
+    height: 7px;
+    left: 0;
+    background-color: #5ca260;
+}
+
 img {
-    height: 250px;
-    width: 200px;
+    height: auto;
+    width: 75%;
     padding: 0;
     margin: 10px;
 }
@@ -132,11 +157,11 @@ img {
 main {
     padding: 1em;
     margin: 0;
-    background-color: #570089;
+    background-color: #654474;
 }
 
 main h2 {
-    -webkit-text-stroke-color: #570089;
+    -webkit-text-stroke-color: #654474;
     -webkit-text-stroke-width: 1px;
     text-align: center;
     padding: 5px;
@@ -174,10 +199,15 @@ button:hover{
     background-color: #4CAF50;
 }
 
+.addToCart {
+    color: white;
+    background-color: #654474;
+}
+
 button a {
     margin: 10;
     border-radius: 5px;
-    background-color: #570089;
+    background-color: #654474;
     color: white; 
     border: none; 
     padding: 9px;
@@ -192,7 +222,7 @@ button a:hover{
 h1 {
     padding: 10px;
     margin: 0;
-    background-color: #570089;
+    background-color: #654474;
     color: white;
 }
 
@@ -207,7 +237,7 @@ h2 {
 footer {
     padding: 10px;
     margin: 10px;
-    background-color: #570089;
+    background-color: #654474;
 }
 footer h2 {
     margin: 10px;
@@ -220,7 +250,7 @@ input[type="text"], input[type="email"], textarea{
     width: 50%;
     padding: 1%;
     font-size: 14px;
-    border: 3px solid #4CAF50;
+    border: 3px solid #5ca260;
     border-radius: 3px;
 }
 
@@ -228,31 +258,7 @@ label {
     display: block;
     font-weight: bold;
     font-size: 21px;
-    color: #570089;
+    color: #654474;
     -webkit-text-stroke-color: #4CAF50;
     -webkit-text-stroke-width: 0.7px;
 }
-
-/* .fixed-overlay { 
-    position: fixed;
-    overflow: auto;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.modal {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -100px;
-    margin-top: -75px;
-}
-
-.modal_container {
-    background-color: #fff;
-    width: 200px;
-    height: 150px;
-} */

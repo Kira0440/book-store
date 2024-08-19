@@ -6,29 +6,41 @@
     <title>Кошик</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        function loadCartContent() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let cartItems = '';
+        // function loadCartContent() {
+        //     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        //     let cartItems = '';
 
-            if (cart.length === 0) {
-                cartItems = '<p>Кошик порожній.</p>';
-            } else {
-                cart.forEach(item => {
-                    cartItems += `<p>${item.name}: ${item.price} грн</p>`;
-                });
-            }
+        //     if (cart.length === 0) {
+        //         cartItems = '<p>Кошик порожній.</p>';
+        //     } else {
+        //         cart.forEach(item => {
+        //             cartItems += `<p>${item.name}: ${item.price} грн</p>`;
+        //         });
+        //     }
 
-            document.getElementById('cart-content').innerHTML = cartItems;
-        }
+        //     document.getElementById('cart-content').innerHTML = cartItems;
+        // }
 
-        window.onload = loadCartContent;
+        // window.onload = loadCartContent;
     </script>
 </head>
 <body>
     <header>
-        <img class="name" src="IMG_1360.JPG">  
+
+        <button class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <img class="name" src="/public/img/IMG_1360.JPG">  
+
+        <div>
+            <input type="search" id="searchInput" />
+        </div>
+        
         <button onclick="window.location.href='cart.html'">
-            <img class="cart" src="IMG_1361.JPG">(<span id="cart-count"></span>)
+            <img class="cart" src="/public/img/IMG_1361.JPG">(<span id="cart-count"></span>)
         </button>
     </header>
     <!--
@@ -43,6 +55,6 @@
     <button onclick="history.back()">Назад</button>
     <button onclick="clearCart()">Очистить</button>
 
-    <script src = "script.js"></script>
+    <script src = "/public/js/cart.js" type="module"></script>
 </body>
 </html>

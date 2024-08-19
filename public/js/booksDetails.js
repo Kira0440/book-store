@@ -13,7 +13,7 @@ function init() {
     }
 
     const div = document.getElementById("bookId");
-    div.innerHTML = "Book id : " + book.id + " ; book title = " + book.name;
+    div.innerHTML = book.name + book.author + book.price + book.imega + book.description;
 }
 
 init();

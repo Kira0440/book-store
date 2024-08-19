@@ -33,7 +33,7 @@ function init(){
 
         form.addEventListener('submit', function(event){
             event.preventDefault();
-                        
+                
             let book = {};
             book.name = form.elements['name'].value;
             book.author = form.elements['author'].value;
@@ -44,7 +44,7 @@ function init(){
                         
             console.log("book to save: ", book);
                     
-            editBook(1, book);
+            editBook(id, book);
 
             alert("saved");
             //form.reset();

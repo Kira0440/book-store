@@ -1,12 +1,3 @@
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-//function addToCart(bookName, price) {
-//    cart.push({ name: bookName, price: price });
-//    localStorage.setItem('cart', JSON.stringify(cart));
-//    alert(bookName + " додано до кошика");
-//    updateCart();
-//}
-
 function goToCart() {
     window.location.href='cart.html'
 }
@@ -17,14 +8,6 @@ function clearCart(){
 
 }
 
-function addToCart(name, price) {
-    cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push({ name, price });
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${name} додано до кошика!`);
-    updateCart();
-}
-
 function loadCart() {
     let cartContent = "Ваш кошик:\n";
     cart.forEach(item => {
@@ -33,19 +16,19 @@ function loadCart() {
     alert(cartContent);
 }
 
-function updateCart() {
-    const totalCount = cart.length;
-    let totalPrice = 0;
+// function updateCart() {
+//     const totalCount = cart.length;
+//     let totalPrice = 0;
     
-    let j = 0
-    for(var i = 0; i < cart.length; i++){
-        //totalPrice = totalPrice + cart[i].price
-        totalPrice += cart[i].price;
-    }
+//     let j = 0
+//     for(var i = 0; i < cart.length; i++){
+//         //totalPrice = totalPrice + cart[i].price
+//         totalPrice += cart[i].price;
+//     }
 
-    const cartCountElement = document.getElementById('cart-count');
-    cartCountElement.innerText = `${totalCount}, ${totalPrice}$`;
-}
+//     const cartCountElement = document.getElementById('cart-count');
+//     cartCountElement.innerText = `${totalCount}, ${totalPrice}$`;
+// }
 
 
 document.addEventListener('DOMContentLoaded', (event) => {

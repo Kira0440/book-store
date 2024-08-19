@@ -1,4 +1,5 @@
 import { getBooks as getAllBooks } from "./public/js/bookService.js";
+import { addToCart } from "./public/js/cartService.js";
 
 let burgers = document.querySelectorAll('.burger');
 let burgerMenus = document.querySelectorAll('.burger-menu');
@@ -32,15 +33,14 @@ const genres = [
         href : "Romance",
         title : "Романтика"
     },
-
     // {
-    //     id: 5,
+    //     id: 6,
     //     href : "New one",
     //     title : "New one"
     // },
 
     // {
-    //     id: 6,
+    //     id: 7,
     //     href : "Second one",
     //     title : "Second one"
     // }
@@ -50,10 +50,12 @@ const genres = [
 
 let search = {
     word: "",
-    genreId : searchGenre.value,
+    //searchGenre.value
+    genreId : null,
     minPrice : 0,
     maxPrice : 99999
 };
+
 
 
 function getBooks() {
@@ -65,18 +67,11 @@ function getBooks() {
     res = res.filter(book => book.price > search.minPrice)
     res = res.filter(book => book.price < search.maxPrice)
 
-    // if (search.minPrice = []){
-    //     search.minPrice = 1;
-    // }
-
-    // if (search.maxPrice = []){
-    //     search.maxPrice = 9999;
-    // }
-
-    if (search.genreId){
+    if (search.genreId && search.genreId >= 0){
         res = res.filter(book => book.genreId == search.genreId)
     }
 
+    console.log("Books ",res)
     return res;     
 }
 
@@ -89,12 +84,13 @@ function getBookHtmlContent(book) {
                     <img src="${book.image}">
                  </a>
                 <p>Ціна:${book.price}грн</p>
-                <button onclick="addToCart('${book.name}', ${book.price})">Додати в кошик</button>
+                <button class="addToCart" data-book-id="${book.id}">Додати в кошик</button>
                 <p><strong>Опис</strong></p>
                 <p>${book.description}</p>
             </div>
     `
 }
+
 
 function getSearchGenre(genre) {
     return `
@@ -104,11 +100,13 @@ function getSearchGenre(genre) {
 
 function getSelectSearchGenre() {
   
-    let searchGenre = "";
+    let searchGenre = "<option value=-1>Всі жанри</option>";
+
 
     for(let i = 0; i < genres.length; i++){
         searchGenre += getSearchGenre(genres[i])
     }
+
 
     return searchGenre;
 }
@@ -144,7 +142,7 @@ function insertBooks(booksToShow) {
         for(let i = 0; i < genres.length; i++){
             const genre = genres[i];
     
-            if (search.genreId != null && search.genreId != genre.id){
+            if (search.genreId && search.genreId >= 0 && search.genreId != genre.id){
                 continue;
             }
 
@@ -155,7 +153,19 @@ function insertBooks(booksToShow) {
         }
     
         el.innerHTML = allHtml
+
+        const buttons = document.querySelectorAll("button.addToCart");
+        buttons.forEach(button =>
+            button.addEventListener('click', onAddToCart)
+        )
     }
+}
+
+function onAddToCart(e) {
+    const button = e.target
+    const bookId = button.getAttribute("data-book-id");
+    
+    addToCart(bookId)
 }
 
 function getNavLink(href, title) {
@@ -208,6 +218,9 @@ function onGenreSelected(e){
     search.genreId = e.target.value;
 
     insertBooks(getBooks());
+
+    const burger = document.querySelector('.burger');
+    burger.click();
 }
 
 function insertGenresFilter() {
@@ -231,7 +244,6 @@ function initSearch() {
     const inputMaxPrice = document.getElementById("searchMaxPrice");
     inputMaxPrice.addEventListener("input", onInputMaxPrice);
 }
-
 
 
 insertBooks(getBooks());
