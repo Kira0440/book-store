@@ -1,5 +1,5 @@
-import { getBooks as getAllBooks } from "./public/js/bookService.js";
-import { addToCart } from "./public/js/cartService.js";
+import bookService from "./public/js/services/bookService.js";
+import cartService from "./public/js/services/cartService.js";
 
 let burgers = document.querySelectorAll('.burger');
 let burgerMenus = document.querySelectorAll('.burger-menu');
@@ -60,7 +60,7 @@ let search = {
 
 function getBooks() {
 
-    let res = getAllBooks();
+    let res = bookService.getBooks();
     res = res.filter(book =>book.name.toLowerCase().includes(search.word.toLowerCase()) || book.author.toLowerCase().includes(search.word.toLowerCase()))
     
     console.log(search.minPrice, search.maxPrice)
@@ -75,19 +75,37 @@ function getBooks() {
     return res;     
 }
 
+function getBookHtmlContentNew(book) {
+    return  `   
+        <button class="book" onclick="window.location.href='/books/details.html?id=${book.id}'">
+            <div class="item_box">
+            <h3>${book.name}</h3>
+            <p>${book.author}</p>
+            <img src="${book.image}">
+            <p>Ціна:${book.price}грн</p>
+            </div>
+        </button>
+        <button class="addToCart" data-book-id="${book.id}">Додати в кошик</button>
+    `
+}
+
 function getBookHtmlContent(book) {
+    const shortDescription = book.description.substr(0, 150)+"..."
+
     return  `
+        <a class="book-wrapper" href="/books/details.html?id=${book.id}">
             <div class="item_box">
                 <h3>${book.name}</h3>
                 <p>${book.author}</p>
-                <a href="/books/details.html?id=${book.id}">
+                
                     <img src="${book.image}">
-                 </a>
+                
                 <p>Ціна:${book.price}грн</p>
                 <button class="addToCart" data-book-id="${book.id}">Додати в кошик</button>
                 <p><strong>Опис</strong></p>
-                <p>${book.description}</p>
+                <p>${shortDescription}</p>
             </div>
+        </a>
     `
 }
 
@@ -161,11 +179,13 @@ function insertBooks(booksToShow) {
     }
 }
 
-function onAddToCart(e) {
-    const button = e.target
+function onAddToCart(event) {
+    const button = event.target
     const bookId = button.getAttribute("data-book-id");
     
-    addToCart(bookId)
+    event.preventDefault();
+
+    cartService.addToCart(bookId)
 }
 
 function getNavLink(href, title) {

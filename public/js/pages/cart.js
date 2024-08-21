@@ -1,7 +1,7 @@
 "use strict";
 
-import { getCart, addToCart, minusFromCart } from "./cartService.js";
-
+import cartService from "../services/cartService.js";
+//{ getCart, addToCart, minusFromCart }
 function getCartLineItem(data){
     return `
         <div>
@@ -19,10 +19,7 @@ function getCartLineItem(data){
     `
 }
 
-function printCartContent(){
-
-    const cart = getCart();
-
+function printCartItems(cart) {
     let cartConetnt = ""
 
     cart.forEach(book => {
@@ -43,10 +40,31 @@ function printCartContent(){
     });
 }
 
+function printCartTotal(cart){
+    let total = 0;
+    const el = document.querySelector("p.total span");
+
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+    })
+
+    el.innerHTML = `$${total}`
+}
+
+function printCartContent(){
+
+    const cart = cartService.getCart();
+
+    printCartItems(cart);
+
+    printCartTotal(cart)
+
+}
+
 function onAdd(e) {
     const button = e.target;
     const bookId = button.getAttribute("data-book-id");
-    addToCart(bookId);
+    cartService.addToCart(bookId);
     printCartContent();
 }
 
@@ -54,8 +72,14 @@ function onMinus(e) {
     console.log("on minus")
     const button = e.target;
     const bookId = button.getAttribute("data-book-id");
-    minusFromCart(bookId);
+    cartService.minusFromCart(bookId);
     printCartContent();
+}
+
+function clearCart(){
+    localStorage.removeItem('cart');
+    loadCartContent()
+
 }
 
 
@@ -63,6 +87,13 @@ function init(){
     printCartContent()
 
     console.log("GDE!")
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById("clearCart").onclick = () => {
+            cartService.clearCart();
+            printCartContent();
+        }
+    })
 }
 
 init();

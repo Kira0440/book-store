@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кошик</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/public/css/page_cart.css">
     <script>
         // function loadCartContent() {
         //     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -33,28 +34,32 @@
             <span></span>
         </button>
         
-        <img class="name" src="/public/img/IMG_1360.JPG">  
+        <img class="name" src="/public/img/logo.PNG">  
 
-        <div>
+        <div class="searchInput">
             <input type="search" id="searchInput" />
         </div>
         
         <button onclick="window.location.href='cart.html'">
             <img class="cart" src="/public/img/IMG_1361.JPG">(<span id="cart-count"></span>)
         </button>
+        
+        <button class="login" onclick="window.location.href='/login.html'">
+            <span><strong>Login</strong></span>
+        </button>
+
     </header>
-    <!--
-        <header>
-            <h1>Ваш кошик</h1>
-        </header>
-    -->
+    
     <main>
         <h1>Кошик</h1>
         <div id="cart-content"></div>
+        <p class="total">
+            Total: <b><span>$0</span></b>
+        </p>
     </main>
     <button onclick="history.back()">Назад</button>
-    <button onclick="clearCart()">Очистить</button>
+    <button id="clearCart">Очистить</button>
 
-    <script src = "/public/js/cart.js" type="module"></script>
+    <script src = "/public/js/pages/cart.js" type="module"></script>
 </body>
 </html>

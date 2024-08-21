@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Продаж книжок</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/public//css/book_cell.css">
+    <link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
 
     <script src="/public/js/home.js" lang="js" type="module"></script>
 </head>
 <body>
     <header>
-
-        <button class="login" onclick="window.location.href='/login.html'">
-            <span><strong>Login</strong></span>
-        </button>
 
         <button class="burger">
             <span></span>
@@ -23,15 +21,20 @@
         
         <img class="name" src="/public/img/logo.PNG">  
 
-        <div>
+        <div class="searchInput">
             <input type="search" id="searchInput" />
         </div>
         
         <button onclick="window.location.href='cart.html'">
             <img class="cart" src="/public/img/IMG_1361.JPG">(<span id="cart-count"></span>)
         </button>
-        <span class="line"></span>
+        
+        <button class="login" onclick="window.location.href='/login.html'">
+            <span><strong>Login</strong></span>
+        </button>
+
     </header>
+
     <nav id="nav">
     </nav>
 

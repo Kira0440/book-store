@@ -1,4 +1,4 @@
-import { getBookById } from "./bookService.js";
+import { getBookById } from "./services/bookService.js";
 
 function init() {
 

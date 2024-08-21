@@ -7,21 +7,26 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
-<body>
+<body class="login.body">
+
+    <button class="login.back" onclick="history.back()">Назад</button>
 
     <footer class="login.form">
-        <h2>Зареструватися</h2><br>
+
+        <div class="login.main">
+            
+            <strong>Вхід в систему</strong><br>
+            
+            <form id="loginForm">
         
-        <div>
-            <form action="/index.html" method="get" id="feedbackForm">
-    
                 <label for = "name">Ім'я: </label>
-                <input type="text" id = "name" name="name" required><br>
-                    
+                <input type="text" id = "uername" name="username" required><br>
+                        
                 <label for = "message">Пароль: </label>
-                <textarea id = "message" name = "message" required></textarea><br>
+                <input id = "password" name = "password" required></textarea><br>
         
-                <button type="submit">Зареструватися</button>
+                <button type="submit">Зайти</button>
+
             </form>
         </div>
     </footer>

@@ -2,12 +2,6 @@ function goToCart() {
     window.location.href='cart.html'
 }
 
-function clearCart(){
-    localStorage.removeItem('cart');
-    loadCartContent()
-
-}
-
 function loadCart() {
     let cartContent = "Ваш кошик:\n";
     cart.forEach(item => {
@@ -31,30 +25,30 @@ function loadCart() {
 // }
 
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    updateCart();
+// document.addEventListener('DOMContentLoaded', (event) => {
+//     updateCart();
 
-    let form = document.getElementById('feedbackForm');
-    form.addEventListener('submit', function(event){
-        event.preventDefault();
+//     let form = document.getElementById('feedbackForm');
+//     form.addEventListener('submit', function(event){
+//         event.preventDefault();
                     
-        let name = form.elements['name'].value;
-        let email = form.elements['email'].value;
-        let message = form.elements['message'].value;
+//         let name = form.elements['name'].value;
+//         let email = form.elements['email'].value;
+//         let message = form.elements['message'].value;
                     
-        console.log("Ім'я: " + name);
-        console.log("Електронна пошта: " + email);
-        console.log("Повідомлення: " + message);
+//         console.log("Ім'я: " + name);
+//         console.log("Електронна пошта: " + email);
+//         console.log("Повідомлення: " + message);
                    
-        form.reset();
-    });
+//         form.reset();
+//     });
 
-    let inputFields = form.querySelectorAll('input', 'textarea');
-    inputFields.forEach(function(input) {
-        input.addEventListener('input', function(){
-            input.setCustomValidity('');
-        });
-    });
-});
+//     let inputFields = form.querySelectorAll('input', 'textarea');
+//     inputFields.forEach(function(input) {
+//         input.addEventListener('input', function(){
+//             input.setCustomValidity('');
+//         });
+//     });
+// });
 
 
