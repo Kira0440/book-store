@@ -1,9 +1,8 @@
-import { editBook, getBookById } from "./bookService.js"
+import bookService from "../../services/bookService.js"
 
 let id;
 
 function init(){
-
 
     document.addEventListener('DOMContentLoaded', (event) => {
 
@@ -17,7 +16,7 @@ function init(){
             return;
         }
 
-        const book = getBookById(id);
+        const book = bookService.getBookById(id);
         if (!book) {
             alert("No book found with id : " + id)
             window.location.href = "/";
@@ -44,7 +43,7 @@ function init(){
                         
             console.log("book to save: ", book);
                     
-            editBook(id, book);
+            bookService.editBook(id, book);
 
             alert("saved");
             //form.reset();

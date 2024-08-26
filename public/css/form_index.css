@@ -1,0 +1,27 @@
+footer {
+    padding: 10px;
+    margin: 10px;
+    background-color: #654474;
+}
+footer h2 {
+    margin: 10px;
+    padding: 7px;
+    background-color: #4CAF50;
+}
+input[type="text"], input[type="email"], textarea{
+    text-align: center;
+    width: 50%;
+    padding: 1%;
+    font-size: 14px;
+    border: 3px solid #5ca260;
+    border-radius: 3px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 21px;
+    color: #654474;
+    -webkit-text-stroke-color: #4CAF50;
+    -webkit-text-stroke-width: 0.7px;
+}

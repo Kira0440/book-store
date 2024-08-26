@@ -4,26 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кошик</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="/public/css/page_cart.css">
-    <script>
-        // function loadCartContent() {
-        //     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        //     let cartItems = '';
+    <link rel="stylesheet" href="/public//css/style.css">
+    <link rel="stylesheet" href="/public//css/page_cart.css">
+    <link rel="stylesheet" href="/public//css/hreader.css">
 
-        //     if (cart.length === 0) {
-        //         cartItems = '<p>Кошик порожній.</p>';
-        //     } else {
-        //         cart.forEach(item => {
-        //             cartItems += `<p>${item.name}: ${item.price} грн</p>`;
-        //         });
-        //     }
-
-        //     document.getElementById('cart-content').innerHTML = cartItems;
-        // }
-
-        // window.onload = loadCartContent;
-    </script>
 </head>
 <body>
     <header>
@@ -35,13 +19,9 @@
         </button>
         
         <img class="name" src="/public/img/logo.PNG">  
-
-        <div class="searchInput">
-            <input type="search" id="searchInput" />
-        </div>
         
         <button onclick="window.location.href='cart.html'">
-            <img class="cart" src="/public/img/IMG_1361.JPG">(<span id="cart-count"></span>)
+            <img class="cart" src="/public/img/IMG_1361.JPG">(<span id="cart_count"></span>)
         </button>
         
         <button class="login" onclick="window.location.href='/login.html'">
@@ -54,12 +34,31 @@
         <h1>Кошик</h1>
         <div id="cart-content"></div>
         <p class="total">
-            Total: <b><span>$0</span></b>
+            Ціна: <b><span>$0</span></b>
         </p>
     </main>
     <button onclick="history.back()">Назад</button>
     <button id="clearCart">Очистить</button>
 
+    <div class="burger-menu">
+
+        <span></span>
+
+        <select id="searchGenre">
+            <option value="1">Дитячі</option>
+            <option value="2">Фантастика</option>
+            <option value="3">Жахіття</option>
+            <option value="4">Романтика</option>
+        </select>
+        <div id="searchMinPrice">
+            <input type="number" id="MinPrice" />
+        </div>
+        <div id="searchMaxPrice">
+            <input type="number" id="MaxPrice" />
+        </div>
+    </div>
+
     <script src = "/public/js/pages/cart.js" type="module"></script>
+    <script src="/public/js/nav.js" type="module"></script>
 </body>
 </html>

@@ -5,16 +5,14 @@ import cartService from "../services/cartService.js";
 function getCartLineItem(data){
     return `
         <div>
-            <span>${data.name} : Price ${data.price} -- <span></span>
-            <br/>
+            <span>${data.name} :<span></span><br/>
             <span>
                 <button class="minus" data-book-id=${data.id}>-</button>
                 ${data.quantity}
-                <button class="plus" data-book-id=${data.id}>+</button>
-                --
-                Total : ${data.quantity * data.price}
+                <button class="plus" data-book-id=${data.id}>+</button><br>
+                Ціна: ${data.quantity * data.price}
+                <br><br>
             </span>
-
         </div>
     `
 }
@@ -42,18 +40,18 @@ function printCartItems(cart) {
 
 function printCartTotal(cart){
     let total = 0;
+    let quantity = 0;
     const el = document.querySelector("p.total span");
 
     cart.forEach(item => {
         total += item.price * item.quantity;
+        quantity += item.quantity;
     })
 
-    el.innerHTML = `$${total}`
+    el.innerHTML = `$${total} (${quantity})`
 }
 
-function printCartContent(){
-
-    const cart = cartService.getCart();
+function printCartContent(cart){
 
     printCartItems(cart);
 
@@ -65,7 +63,6 @@ function onAdd(e) {
     const button = e.target;
     const bookId = button.getAttribute("data-book-id");
     cartService.addToCart(bookId);
-    printCartContent();
 }
 
 function onMinus(e) {
@@ -73,26 +70,28 @@ function onMinus(e) {
     const button = e.target;
     const bookId = button.getAttribute("data-book-id");
     cartService.minusFromCart(bookId);
-    printCartContent();
 }
 
 function clearCart(){
     localStorage.removeItem('cart');
-    loadCartContent()
-
 }
 
 
 function init(){
-    printCartContent()
 
-    console.log("GDE!")
+    const cart = cartService.getCart();
+    printCartContent(cart)
+
 
     document.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById("clearCart").onclick = () => {
             cartService.clearCart();
             printCartContent();
         }
+
+        cartService.addOnCartUpdateListener(cart => {
+            printCartContent(cart)
+        })
     })
 }
 

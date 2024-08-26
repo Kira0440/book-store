@@ -1,0 +1,22 @@
+nav {
+    position: sticky;
+    top: 70px;
+    border-bottom: solid 7px #4CAF50;
+    background-color: white;
+    justify-items: flex-end;
+    display: inline-flexbox;
+    text-align: center;
+    padding: 20px;
+    margin: 0px;
+    height: 30px;
+}
+
+nav a {
+    display: inline;
+    text-decoration: none;
+    color: #654474;
+    margin: 20px;
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+}

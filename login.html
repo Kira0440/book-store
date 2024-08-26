@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="/public//css/style.css">
+    <link rel="stylesheet" href="/public//css/page_login.css">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css
+" rel="stylesheet">
 </head>
 <body class="login.body">
 
@@ -19,18 +21,23 @@
             
             <form id="loginForm">
         
-                <label for = "name">Ім'я: </label>
+                <label for = "uername">Ім'я: </label>
                 <input type="text" id = "uername" name="username" required><br>
                         
-                <label for = "message">Пароль: </label>
-                <input id = "password" name = "password" required></textarea><br>
-        
+                <label for = "password">Пароль: </label>
+                <span>
+                    <input id = "password" name = "password" type="password" required>
+                    <span id="password-eye" class="mdi mdi-eye is-clickable"></span>
+                </span>
+                <br>
                 <button type="submit">Зайти</button>
 
             </form>
         </div>
     </footer>
 
+
+    <script type="module" src="/public/js/pages/login.js"></script>
 </body>
 </html>
  

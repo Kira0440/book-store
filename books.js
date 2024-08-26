@@ -75,20 +75,6 @@ function getBooks() {
     return res;     
 }
 
-function getBookHtmlContentNew(book) {
-    return  `   
-        <button class="book" onclick="window.location.href='/books/details.html?id=${book.id}'">
-            <div class="item_box">
-            <h3>${book.name}</h3>
-            <p>${book.author}</p>
-            <img src="${book.image}">
-            <p>Ціна:${book.price}грн</p>
-            </div>
-        </button>
-        <button class="addToCart" data-book-id="${book.id}">Додати в кошик</button>
-    `
-}
-
 function getBookHtmlContent(book) {
     const shortDescription = book.description.substr(0, 150)+"..."
 

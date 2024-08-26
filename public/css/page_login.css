@@ -1,0 +1,63 @@
+.login\.body {
+    border: solid 7px #4CAF50;
+}
+
+.login\.form {
+    border: solid 7px #4CAF50;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    padding: 2%;
+    margin-top: 7%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 7%;
+    background-color: #654474;
+}
+
+.login\.form h2 {
+    margin: 10px;
+    padding: 7px;
+    background-color: #4CAF50;
+}
+
+.login\.back {
+    background-color: #654474;
+}
+
+.login\.form strong {
+    border-radius: 5px;
+    margin: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: #4CAF50;
+}
+
+.login\.form form {
+    margin: 0;
+    padding: 1%;
+}
+
+.login\.form label {
+    display: block;
+    font-weight: bold;
+    font-size: 21px;
+    color: #654474;
+    -webkit-text-stroke-color: #4CAF50;
+    -webkit-text-stroke-width: 1.5px;
+}
+
+.login\.form input{
+    text-align: center;
+    width: 50%;
+    padding: 1%;
+    font-size: 14px;
+    border: 3px solid #5ca260;
+    border-radius: 3px;
+}
+
+.mdi mdi-eye is-clickable {
+
+}

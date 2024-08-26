@@ -1,4 +1,30 @@
-p.total span {
-    size: 3rem;
-    font-weight: bold;
+body {
+    background-color: #654474;
+}
+
+main {
+    margin: 10px;
+    padding: 10px;
+    background-color: #4CAF50;
+}
+
+div {
+    margin: 5px;
+    background-color: white;
+    border-bottom: solid 7px #654474;
+}
+
+h1 {
+    margin: 5px;
+    padding: 10px;
+    background-color: #654474;
+    color: white;
+}
+
+p.total {
+    padding: 5px;
+    margin: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: white;
 }

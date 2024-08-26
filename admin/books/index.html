@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <div>
+            <span id="username"></span>
+            <button id="logout">Вийти</button>
+        </div>
+    </header>
+
+    <h1>BOOKS LIST</h1>
+
+    <div class="container">
+
+        <table>
+            <thead>
+                <td>
+                    ID
+                </td>
+                <td>
+                    Title
+                </td>
+                <td>
+                    Price
+                </td>
+                <td>Actions</td>
+            </thead>
+
+            <tbody >
+                <tr>
+                    <td>
+                        1
+                    </td>
+    
+                    <td>Some title</td>
+                    
+                    <td>$2.23</td>
+                    
+                    <td>
+                        <button class="edit" data-book-i="1" >Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+
+    </div>
+
+
+    <script src="/public/js/pages/admin/books.js" type="module"></script>
+    <script src="/public/js/nav_admin.js" type="module"></script>
+    <script src="/public/js/pages/admin/admin_check.js" type="module"></script>
+</body>
+</html>

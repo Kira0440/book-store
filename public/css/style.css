@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    height: auto;
+    width: 75%;
+    padding: 0;
+    margin: 10px;
+}
+
+main {
+    padding: 1em;
+    margin: 0;
+    background-color: #654474;
+}
+
+main h2 {
+    -webkit-text-stroke-color: #654474;
+    -webkit-text-stroke-width: 1px;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    margin: 10px;
+    font-size: 200%;
+    background-color: #4CAF50;
+}
+
+.book-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item_box {
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    width: 45%;
+}
+
+button {
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover{
+    color: white;
+    background-color: #4CAF50;
+}
+
+.is-clickable:hover{
+    cursor: pointer;
+}

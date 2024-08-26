@@ -4,6 +4,8 @@ import bookService from "./bookService.js";
 
 class cartService {
 
+    onCartUpdateListeners = [];
+
     readFromStorage(){
         let data = JSON.parse(localStorage.getItem('cart')) || [];
         
@@ -27,6 +29,11 @@ class cartService {
         })
     
         localStorage.setItem('cart', JSON.stringify(result));
+
+        const cart = this.getCart();
+        this.onCartUpdateListeners.forEach(listener => {
+            listener(cart)
+        })
     }
 
     addToCart(bookId) {
@@ -78,6 +85,10 @@ class cartService {
         this.saveToStorage(new Map())
     }
     
+    /**
+     * Возвращает массив елементов в кошике
+     * @returns [ id, name, price, quantity]
+     */
     getCart() {
         //book id
         //book name
@@ -100,6 +111,10 @@ class cartService {
         });
     
         return result;
+    }
+
+    addOnCartUpdateListener(listener) {
+        this.onCartUpdateListeners.push(listener);
     }
 }
 
