@@ -22,7 +22,14 @@ function onFormSubmit(form){
     const res = authService.login(username, password);
 
     if (res){
+        //todo: if admin 
         window.location.href = "/admin/books"
+        //else, go to "/"
+        if (true){
+            ;
+        } eles {
+            ;
+        }
     }
 }
 
@@ -35,12 +42,18 @@ function init(){
         const passwordInput = document.getElementById("password");
         const form = document.querySelector("form");
 
+        const signupButton = document.getElementById("sign-up")
+
         passwordEye.onclick = () => { onPasswordEyeClicked(passwordEye, passwordInput) }
 
         form.addEventListener('submit', function(event){
             event.preventDefault();
             onFormSubmit(form)
         })
+
+        signupButton.onclick = function() {
+            window.location.href = "/signup.html"
+        }
 
     })
 

@@ -1,0 +1,41 @@
+header {
+    margin: 0;
+    padding: 10px;
+    padding-bottom: 0;
+    align-items: center;
+    font-size: 40px;
+    color: white;
+    background-color: #4CAF50;
+}
+
+.name {
+    align-items: baseline;
+    margin: 0;
+    height: 49px;
+    width: 49px;
+}
+
+main h1 {
+    color: white;
+}
+
+.container {
+    margin: 0;
+    padding: 10px;
+    background-color: white;
+}
+
+th {
+    margin: 0;
+    border: solid 3px #4CAF50;
+}
+
+td {
+    margin: 0;
+    border: solid 3px #4CAF50;
+}
+
+table, th, td {
+    border: solid 3px #4CAF50;
+    border-collapse: collapse;
+  }

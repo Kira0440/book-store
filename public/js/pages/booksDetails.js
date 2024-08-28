@@ -12,11 +12,17 @@ function init() {
         return;
     }
 
-    const div = document.getElementById("bookId");
-    div.innerHTML = book.name + book.author + book.price + book.description;
-
     const imgEl = document.querySelector("img");
     imgEl.setAttribute('src', book.image)
+
+    const h2 = document.getElementById("name");
+    h2.innerHTML = book.name;
+
+    const pAuthor = document.getElementById("author");
+    pAuthor.innerHTML = book.author;
+
+    const pDescription = document.getElementById("description");
+    pDescription.innerHTML = book.description;
 }
 
 init();

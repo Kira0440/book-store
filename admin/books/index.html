@@ -4,54 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/public//css/style.css">
+    <link rel="stylesheet" href="/public//css/admine.css">
 </head>
 <body>
 
     <header>
         <div>
+            <img class="name" src="/public/img/logo.PNG">
             <span id="username"></span>
             <button id="logout">Вийти</button>
         </div>
     </header>
 
-    <h1>BOOKS LIST</h1>
+    <main>
 
-    <div class="container">
+        <h1>BOOKS LIST</h1>
 
-        <table>
-            <thead>
-                <td>
-                    ID
-                </td>
-                <td>
-                    Title
-                </td>
-                <td>
-                    Price
-                </td>
-                <td>Actions</td>
-            </thead>
+        <div class="container">
 
-            <tbody >
+            <table>
+
                 <tr>
-                    <td>
-                        1
-                    </td>
-    
-                    <td>Some title</td>
-                    
-                    <td>$2.23</td>
-                    
-                    <td>
-                        <button class="edit" data-book-i="1" >Edit</button>
-                    </td>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th>Actions</th>
                 </tr>
-            </tbody>
-            
-        </table>
 
-    </div>
+                <!-- <div>
+                    <tr>
+                        <td>${id}</td>
+                        <td>${book.name}</td>
+                        <td>${book.author}</td>
+                        <td>${book.price}</td>
+                        <td><button class="edit" data-book-i="${book.id}" >Edit</button></td>
+                    </tr>
+                </div> -->
+                    
+                <tbody id="table-content">
 
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
 
     <script src="/public/js/pages/admin/books.js" type="module"></script>
     <script src="/public/js/nav_admin.js" type="module"></script>

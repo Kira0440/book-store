@@ -9,7 +9,7 @@ function init(){
     const urlParams = new URLSearchParams(window.location.search);
     id = urlParams.get("id");
     
-        let form = document.getElementById('addBookForm');
+        let form = document.getElementById('editBookForm');
         
         if (!form) {
             console.log("no form found : " + addBookForm);
